@@ -12,6 +12,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <Link href="/admin" className="hover:underline">Ringkasan</Link>
           <Link href="/admin/produk" className="hover:underline">Produk</Link>
           <Link href="/admin/kategori" className="hover:underline">Kategori</Link>
+          <Link href="/admin/pesanan" className="hover:underline">Pesanan</Link>
+          <Link href="/admin/laporan" className="hover:underline">Laporan</Link>
+          <Link href="/admin/pengaturan" className="hover:underline">Pengaturan</Link>
         </nav>
       </aside>
       <section className="min-w-0">{children}</section>

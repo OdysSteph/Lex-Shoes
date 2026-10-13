@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { createClient } from "@/lib/supabase/server";
 import { formatIDR, productImageUrl } from "@/lib/format";
+import { AddToCartForm } from "@/components/add-to-cart-form";
 
 type Variant = { id: string; size: string | null; color: string | null; stock: number; is_active: boolean };
 type Img = { path: string; sort_order: number };
@@ -81,9 +82,14 @@ export default async function ProductDetailPage({
           </ul>
         </div>
 
-        <p className="text-sm text-muted-foreground">
-          Tombol keranjang ditambahkan di tahap berikutnya (keranjang dan checkout).
-        </p>
+        <AddToCartForm
+          slug={slug}
+          options={variants.map((v) => ({
+            id: v.id,
+            label: [v.size, v.color].filter(Boolean).join(" / ") || "Standar",
+            stock: v.stock,
+          }))}
+        />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -13,12 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body className={`${geist.className} min-h-screen bg-neutral-50 text-neutral-900`}>
+      <body className={`${geist.className} flex min-h-screen flex-col bg-neutral-50 text-neutral-900`}>
         <Header />
-        <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
-        <footer className="border-t py-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Toko Cibaduyut
-        </footer>
+        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8">{children}</main>
+        <Footer />
       </body>
     </html>
   );
